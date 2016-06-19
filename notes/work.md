@@ -8,4 +8,4 @@ npm i -g graceful-fs
 
 bower install ( uses resources/assets/bower_components)
 
-npm install resources/assets/node_modules
+npm install
