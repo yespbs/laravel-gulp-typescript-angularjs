@@ -28,7 +28,7 @@ gulp.task('scripts', function() {
         'resources/assets/bower_components/jquery/dist/jquery.js'
      ])
     .pipe(concat('app.min.js'))
-    .pipe(gulp.dest('publis/assets/build/js'));
+    .pipe(gulp.dest('public/assets/build/js'));
 });
 
 gulp.task('build', [/*'less', 'html.modals',*/ 'scripts']);
