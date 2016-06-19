@@ -6,11 +6,9 @@ npm i -g minimatch
 npm i -g graceful-fs 
 
 
-bower install ( uses resources/assets/bower_components)
+bower install ( uses resources/assets/bower_components )
 
 npm install
-
-http://weblogs.asp.net/dwahlin/creating-a-typescript-workflow-with-gulp
 
 npm install tsd@next -g
 

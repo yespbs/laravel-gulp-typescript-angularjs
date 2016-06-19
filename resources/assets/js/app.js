@@ -6,7 +6,7 @@ var Piggy;
 })(Piggy || (Piggy = {}));
 var HelloWorldController = (function () {
     function HelloWorldController($scope) {
-        $scope.message = "Hello World";
+        $scope.message = "Hello World from Piggy";
     }
     return HelloWorldController;
 }());
