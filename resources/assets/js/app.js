@@ -1,8 +1,8 @@
+/// <reference path="../typings/tsd.d.ts" />
 var Piggy;
 (function (Piggy) {
     'use strict';
-    angular
-        .module("Piggy", []);
+    angular.module("Piggy", []);
 })(Piggy || (Piggy = {}));
 var HelloWorldController = (function () {
     function HelloWorldController($scope) {
