@@ -15,6 +15,4 @@
     return view('welcome');
 });*/
 
-Route::controller('contacts', 'ContactController');
-
 Route::get('/', 'HelloWorldController@index');
