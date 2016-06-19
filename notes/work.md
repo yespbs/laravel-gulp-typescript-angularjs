@@ -6,9 +6,14 @@ npm i -g minimatch
 npm i -g graceful-fs 
 
 
-bower install ( uses resources/assets/bower_components )
+( bower uses resources/assets/bower_components via .bowerrc)
+bower init
+bower install angular
+bower install angular-route
 
 npm install
+
+( tsd uses resources/assets/typings via tsd.json )
 
 npm install tsd@next -g
 
