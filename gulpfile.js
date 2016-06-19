@@ -18,19 +18,29 @@ var merge = require('merge-stream');*/
 
 var ts = require('gulp-typescript');
 
+gulp.task('styles', function () {
+    gulp.src([       
+        // core
+        'resources/assets/bower_components/bootstrap/dist/css/bootstrap.css',
+    ])
+    .pipe(concat('app.min.css'))
+    .pipe(gulp.dest('public/assets/build/css'));
+});
+
 gulp.task('scripts', function() {
     return gulp.src([
         
-        //angular material
+        // core
         'resources/assets/bower_components/angular/angular.js',
         'resources/assets/bower_components/angular-route/angular-route.js',
-        'resources/assets/bower_components/bootstrap/dist/bootstrap.js',
-        'resources/assets/bower_components/jquery/dist/jquery.js'
+        'resources/assets/bower_components/jquery/dist/jquery.js',
+        'resources/assets/bower_components/bootstrap/dist/js/bootstrap.js',
+        
      ])
     .pipe(concat('app.min.js'))
     .pipe(gulp.dest('public/assets/build/js'));
 });
 
-gulp.task('build', [/*'less', 'html.modals',*/ 'scripts']);
+gulp.task('build', ['styles', 'scripts']);
 
 gulp.task('default', ['build']);
