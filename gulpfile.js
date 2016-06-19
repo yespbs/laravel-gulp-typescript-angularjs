@@ -28,6 +28,17 @@ gulp.task('styles', function () {
 });
 
 gulp.task('scripts', function() {
+    var tsResult = gulp.src([
+            'resources/assets/js/*.ts',
+            'resources/assets/js/**/*.ts'
+        ])
+        .pipe(sourcemaps.init()) // This means sourcemaps will be generated 
+        .pipe(ts({
+            sortOutput: true,
+            out: 'app.js'
+        }))
+        .pipe(gulp.dest('resources/assets/js'));;
+
     return gulp.src([
         
         // core
@@ -35,6 +46,7 @@ gulp.task('scripts', function() {
         'resources/assets/bower_components/angular-route/angular-route.js',
         'resources/assets/bower_components/jquery/dist/jquery.js',
         'resources/assets/bower_components/bootstrap/dist/js/bootstrap.js',
+        'resources/assets/js/app.js'
         
      ])
     .pipe(concat('app.min.js'))

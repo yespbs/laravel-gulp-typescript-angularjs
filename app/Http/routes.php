@@ -17,4 +17,4 @@
 
 Route::controller('contacts', 'ContactController');
 
-Route::get('/', 'ContactController@index');
+Route::get('/', 'HelloWorldController@index');

@@ -1,4 +1,4 @@
 @extends('layouts.contacts')
 @section('content')
-index
+	index
 @endsection
