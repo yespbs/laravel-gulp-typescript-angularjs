@@ -37,7 +37,7 @@ gulp.task('scripts', function() {
             sortOutput: true,
             out: 'app.js'
         }))
-        .pipe(gulp.dest('resources/assets/js'));;
+        .pipe(gulp.dest('resources/assets/js'));
 
     return gulp.src([
         
