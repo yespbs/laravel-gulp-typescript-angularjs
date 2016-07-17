@@ -1,8 +1,0 @@
-{
-  
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    
-    "bootstrap-sass": "^3.0.0"
-  }
-}
