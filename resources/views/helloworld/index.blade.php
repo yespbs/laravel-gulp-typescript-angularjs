@@ -1,11 +1,4 @@
 @extends('layouts.helloworld')
 @section('content')
-	<h1>Hello world</h1>
-	<div>
-
-        <div ng-controller="HelloWorldController">
-            <h2>@{{ message }}</h2>
-        </div>
-
-    </div>    
+	<div class="container" data-ng-view=""></div>
 @endsection

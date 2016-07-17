@@ -1,3 +1,16 @@
+var elixir = require('laravel-elixir');
+
+/*
+ |--------------------------------------------------------------------------
+ | Elixir Asset Management
+ |--------------------------------------------------------------------------
+ |
+ | Elixir provides a clean, fluent API for defining some basic Gulp tasks
+ | for your Laravel application. By default, we are compiling the Sass
+ | file for our application, as well as publishing vendor resources.
+ |
+ */
+
 // Include gulp
 var gulp = require('gulp');
 
@@ -14,10 +27,10 @@ gulp.task('styles', function () {
     .pipe(gulp.dest('public/assets/build/css'));
 });
 
-gulp.task('scripts', function() {
-    var tsResult = gulp.src([
-            'resources/assets/js/*.ts',
-            'resources/assets/js/**/*.ts'
+gulp.task('scripts.ts', function() {
+    return gulp.src([
+            'resources/assets/ts/*.ts',
+            'resources/assets/ts/**/*.ts'
         ])
         .pipe(sourcemaps.init()) // This means sourcemaps will be generated 
         .pipe(ts({
@@ -25,7 +38,9 @@ gulp.task('scripts', function() {
             out: 'app.js'
         }))
         .pipe(gulp.dest('resources/assets/js'));
+});
 
+gulp.task('scripts', function() {
     return gulp.src([
         
         // core
@@ -42,6 +57,38 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('public/assets/build/js'));
 });
 
-gulp.task('build', ['styles', 'scripts']);
+gulp.task('minify', function() {
+    gulp.src('assets/js/app.min.js').pipe(uglify()).pipe(gulp.dest('public/assets/build/js'));
 
-gulp.task('default', ['build']);
+    gulp.src('assets/css/app.min.css')
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false,
+            remove: false
+        }))
+        .pipe(minifyCSS({compatibility: 'ie10'}))
+        .pipe(gulp.dest('public/assets/build/css'));
+});
+
+//gulp.task('build', ['styles', 'scripts']);
+
+//gulp.task('default', ['build']);
+
+elixir(function(mix) {
+    //mix.sass('app.scss');
+
+    // gulp tasks
+    mix.task('styles');
+    mix.task('scripts.ts');
+    mix.task('scripts');
+    //mix.task('minify');
+
+    // versioning
+    // mix.version(['assets/css/app.min.css', 'assets/js/app.min.js']);
+
+    // copy 
+    // mix.copy('resources/assets/img', 'public/assets/img');
+
+    // copy 
+    mix.copy('resources/assets/html', 'public/assets/html');
+});
