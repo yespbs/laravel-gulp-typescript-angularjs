@@ -8,7 +8,7 @@ var app = angular.module("Piggy");
 			$routeProvider
 			.when('/',
 				{
-					controller: 'HelloWordldController',
+					controller: 'HelloWorldController',
 					templateUrl: 'assets/html/helloworld.html'
 				}
 			);

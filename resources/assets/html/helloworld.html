@@ -1,13 +1,18 @@
 <div ng-controller="HelloWorldController as hlwctrl">
-	<h1>Hello world</h1>
+	<h1>Hello World</h1>
 	<div>
 	    <div>
-	        <h2>@{{ hlctrl.message }}</h2>
+	        <h2>{{ message }}</h2>
 	    </div>
 
 	    <div>
-	    	Your name: <input type="input" ng-model="user.name" >
-	    	<button class="btn btn-defaulr" onclick="hlwctrl.showHello( user )">Say Hellp</button>
+	    	Your name: <input type="input" ng-model="user.name" placeholder="Your name">
+	    	<button class="btn btn-default" ng-click="sayHello()">Say Hello</button>
+	    </div>
+
+	    <div>
+	    	Photos: <button class="btn btn-default" ng-click="loadPhotos()">Load</button>
+	    	<div id="photos"></div>
 	    </div>
 	</div> 
 </div>
