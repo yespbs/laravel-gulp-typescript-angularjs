@@ -22,24 +22,16 @@ var app = angular.module("Piggy");
 	        $scope.loadPhotos = () => {
 	        	//alert('aa');
 
-	        	let flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=mount rainier&tagmode=any&jsoncallback=?";
+	        	let flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?format=json&callback=JSON_CALLBACK";
+	        	//let  flickerAPI = "http://requestb.in/12zt6sf1?format=json&callback=JSON_CALLBACK";
 				
-				let req = {
-					method: 'GET',
-					url: flickerAPI,
-					headers: {
-					   'Content-Type': 'application/json'
-					},
-					dataType: 'jsonp',
-					crossDomain: true,
-					data: {
-					    tags: "mount rainier",
-					    tagmode: "any",
-					    format: "json"
-					}
+				let data: {
+				    tags: "mount rainier",
+				    tagmode: "any",
+				    format: "json"
 				}; 
 
-				$http.jsonp( flickerAPI )
+				$http.jsonp( flickerAPI, {params: data} )
 			    .then(function( data ) {
 				    $.each( data.items, function( i, item ) {
 				        $( "<img>" ).attr( "src", item.media.m ).appendTo( "#photos" );
