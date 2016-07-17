@@ -1,0 +1,13 @@
+<div ng-controller="HelloWorldController as hlwctrl">
+	<h1>Hello world</h1>
+	<div>
+	    <div>
+	        <h2>@{{ hlctrl.message }}</h2>
+	    </div>
+
+	    <div>
+	    	Your name: <input type="input" ng-model="user.name" >
+	    	<button class="btn btn-defaulr" onclick="hlwctrl.showHello( user )">Say Hellp</button>
+	    </div>
+	</div> 
+</div>
